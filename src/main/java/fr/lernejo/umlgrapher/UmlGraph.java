@@ -1,18 +1,18 @@
 package fr.lernejo.umlgrapher;
-
 public class UmlGraph {
-    private final Class name;
-    public UmlGraph(Class value) {
-        this.name = value;
+    private final Class[] name;
+    public UmlGraph(final Class ... Nameclass){
+        this.name = Nameclass;
     }
     public String as(GraphType typegraph) {
         String insert = "classDiagram\n";
-        if (typegraph == GraphType.Mermaid) {
-            insert += this.name.getClass().getSimpleName().toLowerCase()  + " " + this.name.getSimpleName();
-            if (this.name.isInterface()) {
-                insert += " {\n" + "    <<interface>>";
-                insert += "\n}\n";}
+        for(Class graphname: name) {
+            if (typegraph == GraphType.Mermaid) {
+                insert += "class" + " " + graphname.getSimpleName();
+                if (graphname.isInterface()) {
+                    insert += " {\n" + "    <<interface>>";
+                    insert += "\n}\n";}
+            }
         }
-        return insert;
-    }
+        return insert;}
 }
