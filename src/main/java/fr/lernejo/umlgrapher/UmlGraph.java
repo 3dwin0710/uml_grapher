@@ -5,14 +5,14 @@ public class UmlGraph {
         this.name = Nameclass;
     }
     public String as(GraphType typegraph) {
-        StringBuilder insert = new StringBuilder("classDiagram\n");
+        String insert = "classDiagram\n";
         for(Class graphname: name) {
             if (typegraph == GraphType.Mermaid) {
-                insert.append(graphname.getClass().getSimpleName().toLowerCase()).append(" ").append(graphname.getSimpleName()).append(" {\n");
+                insert = "class " + graphname.getSimpleName() + " {\n";
                 if (graphname.isInterface()) {
-                    insert.append("    <<interface>>\n");
-                    insert.append("}\n");}
+                    insert += "    <<interface>>\n";
+                    insert += "}\n";}
             }
         }
-        return insert.toString();}
+        return insert;}
 }
