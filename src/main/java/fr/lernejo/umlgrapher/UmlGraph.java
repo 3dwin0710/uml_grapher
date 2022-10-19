@@ -11,7 +11,9 @@ public class UmlGraph {
                 insert += "class " + graphname.getSimpleName() + " {\n";
                 if (graphname.isInterface()) {
                     insert += "    <<interface>>\n";
-                    insert += "}\n";}
+
+                }
+                insert += "}\n";
             }
         }
         return insert;}
