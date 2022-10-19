@@ -8,7 +8,7 @@ public class UmlGraph {
         String insert = "classDiagram\n";
         for(Class graphname: name) {
             if (typegraph == GraphType.Mermaid) {
-                insert = "class " + graphname.getSimpleName() + " {\n";
+                insert += "class " + graphname.getSimpleName() + " {\n";
                 if (graphname.isInterface()) {
                     insert += "    <<interface>>\n";
                     insert += "}\n";}

@@ -16,7 +16,8 @@ public class Launcher implements Runnable {
         System.out.println(result);
     }
     public static void main(String... args) {
-        System.exit(new CommandLine(new Launcher()).execute(args));
+        int exitCode = new CommandLine(new Launcher()).execute(args);
+        System.exit(exitCode);
         //CommandLine.usage(new Launcher(),System.out);
     }
 
