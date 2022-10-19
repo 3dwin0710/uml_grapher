@@ -4,17 +4,10 @@ import picocli.CommandLine.Option;
 
 public class Launcher implements Runnable {
     @Option(names = { "-c", "--classes"}, required = true, description = "Give Class")
-    private final Class Classrecept = UmlGraph.class;
+    private final Class[] Classrecept = null;
 
     @Option(names = { "-g", "--graph-type" }, description = "Give type of graph")
     private final GraphType typeofgraph = GraphType.Mermaid;
-
-
-    public static void main(String... args) {
-        int exitcode = new CommandLine(new Launcher()).execute(args);
-        System.exit(exitcode);
-        //CommandLine.usage(new Launcher(),System.out);
-    }
 
     @Override
     public void run() {
@@ -22,5 +15,10 @@ public class Launcher implements Runnable {
         String result = graphrun.as(typeofgraph);
         System.out.println(result);
     }
+    public static void main(String... args) {
+        System.exit(new CommandLine(new Launcher()).execute(args));
+        //CommandLine.usage(new Launcher(),System.out);
+    }
+
 }
 
